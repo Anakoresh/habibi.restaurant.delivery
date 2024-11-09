@@ -603,6 +603,7 @@ form button {
   grid-template-columns: 1fr auto auto;
   gap: 10px;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .quantity-btn {
