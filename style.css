@@ -655,6 +655,7 @@ form button {
 .checkout-page select {
   padding: 5px 10px;
   border: 1px solid #1f244e;
+  width: 80%;
 }
 
 .checkout-page option, .checkout-page select {
