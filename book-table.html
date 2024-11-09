@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="keywords"
+      content="restaurant, sri lanka, unawatuna, food, Habibi, Habibi restaurant, galle"
+    />
+    <meta
+      name="description"
+      content="This is the website for Habibi restaurant in Sri Lanka"
+    />
+    <title>Habibi restaurant</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Cormorant+SC:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container d-flex justify-content-between align-items-center">
+        <a class="logo" href="index.html">
+          <img src="img/logo.jpg" alt="logo" />
+        </a>
+        <nav class="header-menu d-flex align-items-center">
+          <ul class="d-flex justify-content-between align-items-center">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="starters.html">MENU</a></li>
+            <li><a href="delivery.html">DELIVERY</a></li>
+            <li><a href="book-table.html">BOOK A TABLE</a></li>
+            <li><a href="contacts.html">CONTACTS</a></li>
+          </ul>
+        </nav>
+        <nav class="mobile-menu">
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="starters.html">MENU</a></li>
+            <li><a href="delivery.html">DELIVERY</a></li>
+            <li><a href="book-table.html">BOOK A TABLE</a></li>
+            <li><a href="contacts.html">CONTACTS</a></li>
+          </ul>
+        </nav>
+        <div class="header-right d-flex align-items-center">
+          <a href="cart.html" class="cart">
+            <img src="img/cart.png" alt="cart" />
+            <span>0</span>
+          </a>
+          <button class="burger-menu" aria-label="Open menu">☰</button>
+        </div>
+      </div>
+    </header>
+    <section class="extra-page animate__animated animate__backInUp">
+      <div class="container">
+        <h2>BOOK A TABLE</h2>
+        <div class="book-table-form">
+          <form class="reservation-form d-flex align-items-center" method="POST" action="send-email.php">
+            <label for="name">name:</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="phone">phone:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]+" title="please enter a valid phone number"/>
+
+            <label for="date">date:</label>
+            <input type="date" id="date" name="date" required />
+
+            <label for="time">time:</label>
+            <input type="time" id="time" name="time" required />
+
+            <label for="people">number of people:</label>
+            <input type="number" id="people" name="people" required />
+
+            <button id="submit_btn" type="submit">BOOK A TABLE</button>
+            <div id="loading" style="display: none;">SENDING...</div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="social-media-links">
+          <a
+            href="https://www.instagram.com/habibihostellanka?igsh=bG9mbnp6Z3FyYWdi"
+            target="_blank"
+            ><img src="img/instagram.svg" alt="instagram"
+          /></a>
+          <a
+            href="https://www.facebook.com/share/9ZQujrAn1byjXo8f/?mibextid=kFxxJD"
+            target="_blank"
+            ><img src="img/fb.svg" alt="facebook"
+          /></a>
+          <a
+            href="https://youtube.com/@habibihostel?si=cECmIZ6kzfZex7TD"
+            target="_blank"
+            ><img src="img/youtube.svg" alt="youtube"
+          /></a>
+          <a
+            href="https://www.tiktok.com/@habibihostel4?_t=8qtTYFS86cc&_r=1"
+            target="_blank"
+            ><img src="img/tiktok.svg" alt="tiktok"
+          /></a>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const cartIcon = document.querySelector(".cart span");
+
+        if (cartIcon) {
+          const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+          const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+          // Обновляем текст рядом с иконкой корзины, чтобы показать количество товаров
+          cartIcon.textContent = itemCount;
+        }
+
+        document.querySelector("form").addEventListener("submit", function(event) {
+          document.getElementById("loading").style.display = "block"; // Показать индикатор загрузки
+          document.getElementById("submit_btn").style.display = "none"; // Скрыть кнопку отправки
+        });
+      }); 
+    </script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="keywords" content="restaurant, sri lanka, unawatuna, food, Habibi, Habibi restaurant, galle">
+  <meta name="description" content="This is the website for Habibi restaurant in Sri Lanka">
+  <title>Habibi restaurant</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Cormorant+SC:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+
+<body>
+    <section class="checkout-page"> 
+        <div class="container"> 
+            <div id="cart-summary"> 
+                <h2>YOUR CART</h2> 
+                <ul id="cart-items-list"></ul> 
+                <div id="delivery-options">
+                    <label for="delivery">select delivery area:</label>
+                    <select name="delivery" id="delivery" required>
+                        <option value="unawatuna" data-price="300">unawatuna - 300 LKR</option>
+                        <option value="galle" data-price="500">galle - 500 LKR</option>
+                        <option value="outside galle" data-price="800">outside galle (nearby areas) - 800 LKR</option>
+                    </select>
+                </div>
+                <p>TOTAL: <span id="cart-total">0</span> LKR</p> 
+            </div> 
+    
+
+            <form class="d-flex align-items-center" action="process_order.php" method="post"> 
+                <!-- Поля для ввода имени, email, адреса, телефона и типа оплаты --> 
+                <label for="name">name:</label> 
+                <input type="text" name="name" id="name" required> 
+             
+                <label for="email">email:</label> 
+                <input type="email" name="email" id="email" required> 
+    
+                <label for="address">address:</label> 
+                <input type="text" name="address" id="address" required> 
+             
+                <label for="phone">phone:</label> 
+                <!-- Указываем паттерн для валидации ланкийского номера -->
+                <input type="tel" name="phone" id="phone" pattern="^\+94[0-9]{9}$" placeholder="+94XXXXXXXXX" required> 
+             
+                <label for="payment">payment method:</label> 
+                <select name="payment" id="payment" required> 
+                    <option value="cash">cash payment</option> 
+                    <option value="card">card payment</option> 
+                </select> 
+    
+                <!-- Скрытое поле для передачи данных корзины и стоимости доставки --> 
+                <input type="hidden" name="cart_data" id="cart_data"> 
+                <input type="hidden" name="delivery_fee" id="delivery_fee_input">
+    
+                <button type="submit" id="submit_btn">SUBMIT ORDER</button> 
+                <div id="loading" style="display: none;">SENDING...</div>
+            </form> 
+        </div> 
+    </section> 
+    <script> 
+        document.addEventListener("DOMContentLoaded", function () {  
+            const cartItemsList = document.getElementById("cart-items-list");  
+            const cartTotalElement = document.getElementById("cart-total");  
+            const deliverySelect = document.getElementById("delivery");  
+            const deliveryFeeInput = document.getElementById("delivery_fee_input");  
+            const cartData = JSON.parse(localStorage.getItem("cartItems")) || [];  
+
+            let total = 0;  
+
+            cartItemsList.innerHTML = "";  
+            cartData.forEach(item => {  
+                const listItem = document.createElement("li");  
+                listItem.textContent = `${item.name} - ${item.price} LKR (x${item.quantity})`;  
+                cartItemsList.appendChild(listItem);  
+                total += item.price * item.quantity;  
+            });  
+
+            const defaultDeliveryFee = parseInt(deliverySelect.options[deliverySelect.selectedIndex].getAttribute("data-price"));  
+            deliveryFeeInput.value = defaultDeliveryFee;  
+            cartTotalElement.textContent = total + defaultDeliveryFee;  
+            document.getElementById("cart_data").value = JSON.stringify(cartData);  
+
+            deliverySelect.addEventListener("change", function () {  
+                const selectedOption = deliverySelect.options[deliverySelect.selectedIndex];  
+                const deliveryFee = parseInt(selectedOption.getAttribute("data-price"));  
+                deliveryFeeInput.value = deliveryFee;  
+                cartTotalElement.textContent = total + deliveryFee;  
+            });  
+
+
+            document.querySelector("form").addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                // Сохранение данных корзины перед отправкой
+                localStorage.setItem("cartItems", JSON.stringify(cartData));
+
+                document.getElementById("loading").style.display = "block";
+                document.getElementById("submit_btn").style.display = "none";
+        
+                // Очистка корзины из localStorage после успешного заказа
+                this.submit(); // Отправка формы
+            });
+        });
+    </script>
+</body>
+</html>
