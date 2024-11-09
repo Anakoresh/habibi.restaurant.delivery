@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="keywords"
+      content="restaurant, sri lanka, unawatuna, food, Habibi, Habibi restaurant, galle"
+    />
+    <meta
+      name="description"
+      content="This is the website for Habibi restaurant in Sri Lanka"
+    />
+    <title>Habibi restaurant</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Cormorant+SC:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container d-flex justify-content-between align-items-center">
+        <a class="logo" href="index.html">
+          <img src="img/logo.jpg" alt="logo" />
+        </a>
+        <nav class="header-menu d-flex align-items-center">
+          <ul class="d-flex justify-content-between align-items-center">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="starters.html">MENU</a></li>
+            <li><a href="delivery.html">DELIVERY</a></li>
+            <li><a href="book-table.html">BOOK A TABLE</a></li>
+            <li><a href="contacts.html">CONTACTS</a></li>
+          </ul>
+        </nav>
+        <nav class="mobile-menu">
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="starters.html">MENU</a></li>
+            <li><a href="delivery.html">DELIVERY</a></li>
+            <li><a href="book-table.html">BOOK A TABLE</a></li>
+            <li><a href="contacts.html">CONTACTS</a></li>
+          </ul>
+        </nav>
+        <div class="header-right d-flex align-items-center">
+          <a href="cart.html" class="cart">
+            <img src="img/cart.png" alt="cart" />
+            <span>0</span>
+          </a>
+          <button class="burger-menu" aria-label="Open menu">☰</button>
+        </div>
+      </div>
+    </header>
+    <section class="food-page">
+      <div class="menu">
+        <div class="container">
+          <nav
+            id="food-menu"
+            class="food-menu scroll-menu animate__animated animate__bounceIn"
+          >
+            <a href="starters.html" class="menu-item">STARTERS</a>
+            <a href="main.html" class="menu-item">MAIN</a>
+            <a href="sandwiches.html" class="menu-item active"
+              >SANDWICHES & WRAPS</a
+            >
+            <a href="oven.html" class="menu-item">ORIENTAL OVEN</a>
+            <a href="salads.html" class="menu-item">SALADS</a>
+            <a href="deserts.html" class="menu-item">ADD ON & DESERTS</a>
+          </nav>
+        </div>
+      </div>
+      <div id="add-to-cart-message">ADDED TO YOUR CART</div>
+      <div class="food-items animate__animated animate__fadeInUp">
+        <div class="container">
+          <div class="food-item">
+            <div class="food-item-info">
+              <h3>FALAFEL SANDWICH</h3>
+              <p>
+                our signature falafel sandwich, a culinary delight that stands
+                out on our menu. crisp and golden falafel patties are nestled in
+                a warm pita, layered with fresh lettuce, tomatoes, cucumbers,
+                and drizzled with our house-made tahini sauce, served with 2
+                pieces of falafel and tahini sause
+              </p>
+              <div class="food-item-info-bottom d-flex justify-content-between">
+                <span>000 LKR</span>
+                <button>add to cart</button>
+              </div>
+            </div>
+            <img src="img/falafel sandwich.png" alt="food item 1" />
+          </div>
+          <div class="food-item">
+            <div class="food-item-info">
+              <h3>CHICKEN LIVER SANDWICH</h3>
+              <p>
+                tender chicken livers are sautéed to perfection with onions and
+                spices, then nestled in a warm, pita bread. topped with crisp
+                lettuce and tahini sauce. served with french fries
+              </p>
+              <div class="food-item-info-bottom d-flex justify-content-between">
+                <span>000 LKR</span>
+                <button>add to cart</button>
+              </div>
+            </div>
+            <img src="img/liver.png" alt="food item 2" />
+          </div>
+          <div class="food-item">
+            <div class="food-item-info">
+              <h3>KEBAB & SHISH TAWOOK WRAP</h3>
+              <p>
+                enjoy either juicy seasoned kebab or tender marinated chicken,
+                wrapped in a soft flatbread with fresh vegetables and a drizzle
+                of creamy tahini sauce. served with french fries
+              </p>
+              <div class="food-item-info-bottom d-flex justify-content-between">
+                <span>000 LKR</span>
+                <button>add to cart</button>
+              </div>
+            </div>
+            <img src="img/kebab.png" alt="food item 3" />
+          </div>
+          <div class="food-item">
+            <div class="food-item-info">
+              <h3>CHICKEN BUFALLO TOAST BURGER</h3>
+              <p>
+                a crispy chicken fillet tossed in tangy buffalo sauce, this
+                burger is layered with fresh lettuce, ripe tomatoes, and a
+                creamy ranch dressing, served with french fries
+              </p>
+              <div class="food-item-info-bottom d-flex justify-content-between">
+                <span>000 LKR</span>
+                <button>add to cart</button>
+              </div>
+            </div>
+            <img src="img/buffallo.png" alt="food item 4" />
+          </div>
+          <div class="extra-info">
+            <p>ALL MENU ORDERS ARE SUBJECT TO 10% SERVICE CHARGE</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+    <script>
+      function showMessage() {
+        const message = document.getElementById('add-to-cart-message');
+        message.style.display = 'block';
+        message.style.opacity = '1';
+
+    // Скрываем сообщение через 2 секунды
+        setTimeout(() => {
+          message.style.opacity = '0';
+          setTimeout(() => {
+            message.style.display = 'none';
+          }, 300); // Дожидаемся завершения анимации
+        }, 2000);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        const cartIcon = document.querySelector(".cart span");
+        const addToCartButtons = document.querySelectorAll(
+          ".food-item-info-bottom button"
+        );
+
+        updateCartIcon(cartItems.reduce((sum, item) => sum + item.quantity, 0));
+
+        addToCartButtons.forEach((button) => {
+          button.addEventListener("click", function (event) {
+            const foodItem = event.target.closest(".food-item");
+            const itemName = foodItem.querySelector("h3").textContent;
+            const itemPriceText = foodItem.querySelector("span").textContent;
+            const itemPrice = parseInt(itemPriceText.replace(/[^\d]/g, ""));
+
+            const existingItem = cartItems.find(cartItem => cartItem.name === itemName);
+
+            if (existingItem) {
+                // Если товар уже в корзине, увеличиваем его количество
+                existingItem.quantity += 1;
+            } else {
+                // Если товара нет в корзине, добавляем его с количеством 1
+                cartItems.push({ name: itemName, price: itemPrice, quantity: 1 });
+            }
+
+            updateCartIcon(cartItems.reduce((sum, item) => sum + item.quantity, 0)); // Обновляем значок корзины
+            saveCart();
+            showMessage();
+          });
+        });
+
+        function updateCartIcon(count) {
+          cartIcon.textContent = count;
+        }
+
+        function saveCart() {
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        }
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        const activeSection = document.querySelector("#food-menu a.active");
+
+        if (activeSection) {
+          activeSection.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      });
+    </script>
+  </body>
+</html>

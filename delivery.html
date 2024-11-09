@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="keywords"
+      content="restaurant, sri lanka, unawatuna, food, Habibi, Habibi restaurant, galle"
+    />
+    <meta
+      name="description"
+      content="This is the website for Habibi restaurant in Sri Lanka"
+    />
+    <title>Habibi restaurant</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Cormorant+SC:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container d-flex justify-content-between align-items-center">
+        <a class="logo" href="index.html">
+          <img src="img/logo.jpg" alt="logo" />
+        </a>
+        <nav class="header-menu d-flex align-items-center">
+          <ul class="d-flex justify-content-between align-items-center">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="starters.html">MENU</a></li>
+            <li><a href="delivery.html">DELIVERY</a></li>
+            <li><a href="book-table.html">BOOK A TABLE</a></li>
+            <li><a href="contacts.html">CONTACTS</a></li>
+          </ul>
+        </nav>
+        <nav class="mobile-menu">
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="starters.html">MENU</a></li>
+            <li><a href="delivery.html">DELIVERY</a></li>
+            <li><a href="book-table.html">BOOK A TABLE</a></li>
+            <li><a href="contacts.html">CONTACTS</a></li>
+          </ul>
+        </nav>
+        <div class="header-right d-flex align-items-center">
+          <a href="cart.html" class="cart">
+            <img src="img/cart.png" alt="cart" />
+            <span>0</span>
+          </a>
+          <button class="burger-menu" aria-label="Open menu">☰</button>
+        </div>
+      </div>
+    </header>
+    <section class="extra-page animate__animated animate__backInUp">
+      <div class="container">
+        <h2>WELCOME TO<br />OUR DELIVERY SERVICE</h2>
+        <div class="delivery-page-info">
+          <h3>HOW IT WORKS:</h3>
+          <ol>
+            <li>browse our menu and add items to your cart</li>
+            <li>review your selections and proceed to checkout</li>
+            <li>
+              fill in your delivery details, and we’ll take care of the rest
+            </li>
+          </ol>
+          <p>
+            feel free to contact us:
+            <a href="tel:+94778750629">+94 (77) 875 0629</a>
+          </p>
+          <p>working hours: <mark>from 12pm-10pm</mark></p>
+        </div>
+        <div class="menu-btn">
+          <a href="starters.html">VIEW MENU</a>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="social-media-links">
+          <a
+            href="https://www.instagram.com/habibihostellanka?igsh=bG9mbnp6Z3FyYWdi"
+            target="_blank"
+            ><img src="img/instagram.svg" alt="instagram"
+          /></a>
+          <a
+            href="https://www.facebook.com/share/9ZQujrAn1byjXo8f/?mibextid=kFxxJD"
+            target="_blank"
+            ><img src="img/fb.svg" alt="facebook"
+          /></a>
+          <a
+            href="https://youtube.com/@habibihostel?si=cECmIZ6kzfZex7TD"
+            target="_blank"
+            ><img src="img/youtube.svg" alt="youtube"
+          /></a>
+          <a
+            href="https://www.tiktok.com/@habibihostel4?_t=8qtTYFS86cc&_r=1"
+            target="_blank"
+            ><img src="img/tiktok.svg" alt="tiktok"
+          /></a>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const cartIcon = document.querySelector(".cart span");
+
+        if (cartIcon) {
+          const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+          const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+          // Обновляем текст рядом с иконкой корзины, чтобы показать количество товаров
+          cartIcon.textContent = itemCount;
+        }
+      });
+    </script>
+  </body>
+</html>
