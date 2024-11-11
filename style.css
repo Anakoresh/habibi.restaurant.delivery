@@ -555,6 +555,7 @@ input {
   color: #1f244e;
   font-size: 24px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 0;
 }
 
 form button {
@@ -658,9 +659,10 @@ form button {
 }
 
 .checkout-page select {
-  padding: 5px 10px;
+  padding: 4px 12px;
   border: 1px solid #1f244e;
-  width: 80%;
+  width: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .checkout-page option, .checkout-page select {
@@ -803,7 +805,7 @@ form button {
     height: 150px;
   }
 
-  input {
+  input, .checkout-page select {
     width: 90%;
   }
 }
