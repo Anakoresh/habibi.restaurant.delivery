@@ -11,7 +11,7 @@ function toggleMenu() {
   document.querySelector(".mobile-menu").classList.toggle("active");
 }
 
-window.onclick = function (event) {
+function closeMenu(event) {
   const burgerMenu = document.querySelector(".burger-menu");
   const mobileMenu = document.querySelector(".mobile-menu");
 
@@ -23,4 +23,7 @@ window.onclick = function (event) {
     mobileMenu.classList.remove("active");
     burgerMenu.classList.remove("active");
   }
-};
+}
+
+window.addEventListener("click", closeMenu);
+window.addEventListener("touchstart", closeMenu);
